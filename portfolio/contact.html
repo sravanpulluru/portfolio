@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Sravan's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1, h2, h3 {
+      color: white;
+    }
+
+    .btn-nav {
+      margin-left: 5px;
+      color: white;
+      border-color: white;
+    }
+
+    .btn-nav:hover {
+      background-color: white;
+      color: #6a11cb;
+      font-weight: bold;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(6.5px);
+      -webkit-backdrop-filter: blur(6.5px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .contact-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-control::placeholder {
+      color: #eee;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      color: white;
+      border: 1px solid #fff;
+    }
+
+    .btn-light {
+      background-color: white;
+      color: #6a11cb;
+      border: none;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: 0.3s;
+      padding: 12px 30px;
+      text-transform: uppercase;
+    }
+
+    .btn-light:hover {
+      background-color: #f1f1f1;
+      color: #2575fc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    a.text-warning:hover {
+      text-decoration: underline;
+    }
+
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: gold;
+      color: black;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #ffe066;
+      transform: scale(1.1);
+    }
+
+    /* Responsive design */
+    @media (max-width: 767px) {
+      .contact-box {
+        padding: 20px;
+      }
+
+      .btn-nav {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="text-center mt-4">
+    <h1 class="fw-bold" id="greetingText">« ✦ CONTACT ✦ »</h1>
+  </div>
+  <hr style="border-color: white;">
+
+  <div class="container text-end my-3">
+    <a href="home.html" class="btn btn-outline-light btn-nav">HOME</a>
+    <a href="about.html" class="btn btn-outline-light btn-nav">ABOUT</a>
+    <a href="gallery.html" class="btn btn-outline-light btn-nav">GALLERY</a>
+    <a href="skills.html" class="btn btn-outline-light btn-nav">SKILLS</a>
+    <a href="contact.html" class="btn btn-outline-light btn-nav">CONTACT</a>
+  </div>
+
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 contact-box" id="contactBox">
+        <h2 class="text-center mb-4">Get in Touch</h2>
+        <ul>
+          <li>Email: <a href="mailto:venkatasravan_pulluru@srmap.edu.in" class="text-warning">venkatasravan_pulluru@srmap.edu.in</a></li>
+          <li>LinkedIn: 
+            <a href="https://www.linkedin.com/in/sravan-pulluru-87b78a291" target="_blank" class="text-warning">Visit Profile</a>
+          </li>
+        </ul>
+        <p>Feel free to reach out for collaborations or inquiries.</p>
+
+        <form action="contact.php" method="POST" class="mt-4" onsubmit="return validateForm()">
+          <div class="mb-3">
+            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <textarea name="message" id="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-light px-4">Send Message</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (name === "" || email === "" || message === "") {
+        alert("Please fill in all fields.");
+        return false;
+      }
+      return true;
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+
+    
+    window.addEventListener("load", function () {
+      const contactBox = document.getElementById("contactBox");
+      contactBox.classList.add("show");
+    });
+  </script>
+</body>
+</html>
